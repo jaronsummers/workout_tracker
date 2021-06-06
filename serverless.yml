@@ -1,0 +1,28 @@
+org: jaronsummers
+app: workout_tracker
+service: api
+provider:
+  name: aws
+  runtime: rust
+  memorySize: 128
+  stage: dev
+  region: eu-west-2
+
+plugins:
+  - serverless-rust
+
+package:
+  individually: true
+
+functions:
+  api:
+    handler: api
+    events:
+      - http:
+          path: '/'
+          method: GET
+
+custom:
+  rust:
+    dockerImage: jaronsummers/lambda-rust
+    dockerTag: 'latest'

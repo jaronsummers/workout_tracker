@@ -1,0 +1,13 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2018"
+
+[[bin]]
+name = "api"
+path = "apps/api/src/main.rs"
+
+[dependencies]
+tokio = { version = "1.0", features = ["macros"] }
+lambda_http = { git = "https://github.com/awslabs/aws-lambda-rust-runtime/", branch = "master"}
+serde_json = "1.0"
